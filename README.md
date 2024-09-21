@@ -6,6 +6,7 @@
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 
 
+chrome and chrome drive is in chrome layer
 
 # Table of contents  
 1. [Introduction](#introduction)  
