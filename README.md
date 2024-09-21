@@ -149,8 +149,7 @@ def lambda_handler(event, context):
             "message": f"Page title is: {page_title}"
         })
     }
-
-
+```
 
 
 ## License  
