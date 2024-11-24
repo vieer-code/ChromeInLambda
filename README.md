@@ -1,5 +1,5 @@
 ## Badges  
-
+/Users/vieerdubey/Desktop/ChromeInLambda/python/lib/python3.10/site-packages/sockshandler.py
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
@@ -13,8 +13,14 @@ Welcome to the powerful world of automation! This guide will walk you through th
 ## 🎯 Prerequisites
 
 - **Nothing New**: We can start with our basic knowledge.
+- **Terraform**: terraform installed on your local (only if you want to use automated way)
 
-  
+## 👨‍🔧 Using Terraform
+
+- **Clone this reposistry** : this repo contains the terraform.tf
+- **terraform will deploy** : a s3 bucket, and will push chrome.zip into that bucket then create layer , after that   lambda attached with those layer
+- **screenshot**: the sample code pushes the screenshot in s3 if there is permission to lambda role
+
 ## 📦 Creating Chrome Layer for AWS Lambda
 
 To run Chrome in AWS Lambda, you need to create a custom Lambda layer containing the necessary Chrome binaries and dependencies.
@@ -59,6 +65,11 @@ from tempfile import mkdtemp
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+import os
+import boto3
+import time
+
+s3_client = boto3.client('s3')
 
 def lambda_handler(event=None, context=None):
     
@@ -79,8 +90,17 @@ def lambda_handler(event=None, context=None):
     chrome_options.add_argument("--remote-debugging-port=9222")
     driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-    driver.get("https://www.google.com")
-    
+    driver.get("https://www.linkedin.com/in/vieerdwivedi/")
+    time.sleep(2)
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+    screenshot_path = "/tmp/screenshot.png"
+    driver.save_screenshot(screenshot_path)
+    s3_key = "screenshots/screenshot.png"
+    try:
+        with open(screenshot_path, "rb") as screenshot_file:
+            s3_client.put_object(Bucket=os.environ.get('S3_BUCKET_NAME'), Key=s3_key, Body=screenshot_file)
+    except:
+        print("no permission to put into s3")
     title = driver.title
     driver.quit()
     return {
