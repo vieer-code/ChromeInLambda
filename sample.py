@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-def handler(event=None, context=None):
+def lambda_handler(event=None, context=None):
     
     chrome_service = Service("/opt/chromedriver")
     chrome_options = Options()
