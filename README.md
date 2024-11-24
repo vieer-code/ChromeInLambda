@@ -12,10 +12,8 @@ Welcome to the powerful world of automation! This guide will walk you through th
 
 ## 🎯 Prerequisites
 
-Before we proceed, ensure you have the following:
+- **Nothing New**: We can start with our basic knowledge.
 
-- **AWS Account**: Ensure your AWS account is set up.
-- **AWS CLI**: Make sure AWS CLI is installed and configured.
   
 ## 📦 Creating Chrome Layer for AWS Lambda
 
