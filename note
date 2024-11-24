@@ -1,8 +1,0 @@
-
-
-python/lib/<python version you need>/site-packages/
-
-mkdir python/lib/python3.10/site-packages/
-cd python/lib/python3.10/site-packages/
-pip install selenium==4.22.0 --target ./
-zip folder python
