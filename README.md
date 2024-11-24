@@ -45,9 +45,12 @@ I have included all the necessary Chrome libraries, along with Chrome and Chrome
     if not able to upload cause of size limit , upload to s3 and then upload though s3
     ```
 
-### Update Function Code
 
-Update your Lambda function code to use Selenium with the headless Chrome browser, To init and run chrome for scraping using python 
+## 🛠️ Running lambda function
+
+**Notes**: 
+1. **Make sure the lambda memory size is atleast 500Mb**
+2. **Make sure the lambda timeout is atleast 5Min, or more if code is long** 
 
 **Sample Code**:
 ```python
