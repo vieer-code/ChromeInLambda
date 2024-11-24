@@ -5,6 +5,10 @@
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 
 
+# 🛠️ Checkout this video for details
+[![Watch on YouTube](https://img.shields.io/badge/YouTube-Watch-red.svg)](https://www.youtube.com/watch?v=r5JrJxwTy-0)
+
+
 # 🚀 Run Headless Chrome in AWS Lambda! 🚀 
 
 Welcome to the powerful world of automation! This guide will walk you through the steps to run Headless Chrome in AWS Lambda using the Selenium WebDriver and other dependencies. Follow along to see how easy it is to set up a Lambda function to perform web scraping or web testing at scale ⏱️.
